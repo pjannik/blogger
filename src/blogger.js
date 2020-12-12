@@ -19,7 +19,7 @@
             message += ': ' + div.getElementsByTagName('input')[0].value;
             message += '\n';
           }
-
+          //
           $.post('https://www.blogger.com/contact-form.do', {
               name: form[1].value,
               email: form[2].value,
