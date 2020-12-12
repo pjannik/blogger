@@ -9,8 +9,8 @@
 		  var divs = $(#buy-art-form form-group');
 		  for (var i=0,n=divs.size(); i<n; i++) {
 			var div = lines[i];
-			message+= div.getElementsByTagName('label)[0].value;
-			message+= ': ' + div.getElementsByTagName('input)[0].value;
+			message+= div.getElementsByTagName('label')[0].value;
+			message+= ': ' + div.getElementsByTagName('input')[0].value;
 			message+='\n';
 		  }
 		  
