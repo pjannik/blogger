@@ -12,7 +12,7 @@
         function get() {
           var form = $('#buy-art-form input');
           var message = '';
-          var divs = $('#buy-art-form form-group');
+          var divs = $('#buy-art-form div.form-group');
           for (var i = 0, n = divs.size(); i < n; i++) {
             var div = lines[i];
             message += div.getElementsByTagName('label')[0].value;
