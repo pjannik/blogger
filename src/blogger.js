@@ -9,7 +9,7 @@
       }
 
       function buy_art_submit(item) {
-        function post() {
+        function get() {
           var form = $('#buy-art-form input');
           var message = '';
           var divs = $(#buy - art - form form - group ');
@@ -32,5 +32,5 @@
               }
             );
           }
-          return post;
+          return get;
         }
