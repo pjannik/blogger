@@ -23,7 +23,7 @@
       }
 
       function show_or_hide_address(event) {
-        var input event.target.ch;
+        var input event.target;
         if (target.value == 'chronopost') {
             var hidden = !target.checked;
             var groups = $('#buy-art-form>div.form-group.address');
