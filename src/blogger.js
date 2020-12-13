@@ -35,7 +35,7 @@ function show_or_hide_address(event) {
 
 function buy_art_submit(item) {
   function get() {
-    var form = $('#buy-art-form input');
+    var form = $('#buy-art-form')[0];
     var message = '';
     var divs = $('#buy-art-form div.form-group');
     for (var i = 0, n = divs.size(); i < n; i++) {
@@ -45,9 +45,10 @@ function buy_art_submit(item) {
       message += '\n';
     }
     //
+    var formData =
     $.post('https://www.blogger.com/contact-form.do', {
-      name: jQuery('[name = "name"]', form).value,
-      email: jQuery('[name = "email"]', form).value,
+      name: jQuery('input/[name = "name"]', form)[0].value,
+      email: jQuery('input/[name = "email"]', form)[0].value,
       message: message,
       blogID: '5799764146171352736'
     },
