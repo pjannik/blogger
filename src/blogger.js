@@ -46,7 +46,6 @@ function buy_art_submit(item) {
       message += '\n';
     }
     //
-    var formData =
     $.post('https://www.blogger.com/contact-form.do', {
       name: jQuery('input/[name = "name"]', form)[0].value,
       email: jQuery('input/[name = "email"]', form)[0].value,
