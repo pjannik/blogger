@@ -8,6 +8,7 @@ function buy_art_popup(item) {
         product = anchor.parentElement.nextElementSibling.innerText.trim();
         break;
       }
+      anchor = anchors.iterateNext();
     }
     return product;
   }
