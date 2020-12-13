@@ -1,5 +1,5 @@
       function buy_art_popup(item) {
-        function findProduct(item) {
+        function findProduct() {
           var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]',document.body);
           var anchor = anchors.iterateNext();
           var product = '';
@@ -18,7 +18,7 @@
             beforeClose: buy_art_submit(item)
           }
         });
-        $('#buy-art-form-1').value = product;
+        $('#buy-art-form-1').value = findProduct();
       }
 
       function buy_art_submit(item) {
