@@ -19,6 +19,18 @@
           }
         });
         $('#buy-art-form-1').attr('value',findProduct());
+        $('#buy-art-form>div.form-check')[0].change(show_or_hide_address);
+      }
+
+      function show_or_hide_address(event) {
+        var input event.target.ch;
+        if (target.value == 'chronopost') {
+            var hidden = !target.checked;
+            var groups = $('#buy-art-form>div.form-group.address');
+            for (var i = 0, n = groups.size()) {
+              groups[i].hidden = hidden;
+            }
+         }
       }
 
       function buy_art_submit(item) {
