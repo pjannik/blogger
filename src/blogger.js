@@ -5,7 +5,7 @@
           var product = '';
           while (anchor) {
             if (anchor.href.includes('(' + item +')')) {
-              product = anchor.parentElement.parentElement.nextElementSibling.innerText.trim();
+              product = anchor.parentElement.nextElementSibling.innerText.trim();
               break;
             }
           }
