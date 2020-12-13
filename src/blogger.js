@@ -5,7 +5,7 @@ function buy_art_popup(item) {
     var product = '';
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
-        product = anchor.parentElement.parentElement.parentElement.nextElementSibling.innerText.trim();
+        product = anchor.parentElement.nextElementSibling.innerText.trim();
         break;
       }
       anchor = anchors.iterateNext();
