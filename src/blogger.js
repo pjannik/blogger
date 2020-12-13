@@ -23,7 +23,7 @@ function buy_art_popup(item) {
 }
 
 function show_or_hide_address(event) {
-  var input event.target;
+  var input = event.target;
   if (input.value == 'chronopost') {
     var hidden = !target.checked;
     var groups = $('#buy-art-form>div.form-group.address');
