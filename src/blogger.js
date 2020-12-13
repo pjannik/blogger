@@ -5,7 +5,7 @@ function buy_art_popup(item) {
     var product = '';
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
-        product = anchor.parentElement.nextElementSibling.innerText.trim();
+        product = anchor.parentElement.parentElement.parentElement.nextElementSibling.innerText.trim();
         break;
       }
       anchor = anchors.iterateNext();
@@ -20,7 +20,8 @@ function buy_art_popup(item) {
     }
   });
   $('#buy-art-form-1').attr('value', findProduct());
-  $('#buy-art-form>.form-check>.form-check-input')[0].change(show_or_hide_address);
+  var chronopost = $('#buy-art-form>.form-check>.form-check-input')[0];
+  $(chronopost).change(show_or_hide_address);
 }
 
 function show_or_hide_address(event) {
