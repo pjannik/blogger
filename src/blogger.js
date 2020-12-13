@@ -18,7 +18,7 @@
             beforeClose: buy_art_submit(item)
           }
         });
-        $('#buy-art-form-1').value = findProduct();
+        $('#buy-art-form-1').attr('value',findProduct());
       }
 
       function buy_art_submit(item) {
