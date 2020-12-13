@@ -40,8 +40,8 @@
           var divs = $('#buy-art-form div.form-group');
           for (var i = 0, n = divs.size(); i < n; i++) {
             var div = divs[i];
-            message += div.getElementsByTagName('label')[0].value;
-            message += ': ' + div.getElementsByTagName('input')[0].innerText;
+            message += div.getElementsByTagName('label')[0].innerText;
+            message += ': ' + div.getElementsByTagName('input')[0].value;
             message += '\n';
           }
           //
