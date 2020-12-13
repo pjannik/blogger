@@ -24,10 +24,10 @@
 
       function show_or_hide_address(event) {
         var input event.target;
-        if (target.value == 'chronopost') {
+        if (input.value == 'chronopost') {
             var hidden = !target.checked;
             var groups = $('#buy-art-form>div.form-group.address');
-            for (var i = 0, n = groups.size()) {
+            for (var i = 0, n = groups.size(); i < n; i++) {
               groups[i].hidden = hidden;
             }
          }
