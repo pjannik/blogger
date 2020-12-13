@@ -4,7 +4,7 @@
           var anchor = anchors.iterateNext();
           var product = '';
           while (anchor) {
-            if (anchor.includes('(' + item +')')) {
+            if (anchor.href.includes('(' + item +')')) {
               product = anchor.parentElement.parentElement.nextElementSibling.innerText.trim();
               break;
             }
