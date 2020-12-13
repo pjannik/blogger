@@ -19,7 +19,7 @@ function buy_art_popup(item) {
     }
   });
   $('#buy-art-form-1').attr('value', findProduct());
-  $('#buy-art-form>div.form-check')[0].change(show_or_hide_address);
+  $('#buy-art-form>.form-check>.input')[0].change(show_or_hide_address);
 }
 
 function show_or_hide_address(event) {
