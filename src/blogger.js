@@ -37,7 +37,7 @@ function buy_art_popup(item) {
   });
   // wire submit button
   var submit = $('#buy-art-form-submit')[0];
-  S(submit).click(buy_art_submit);
+  $(submit).click(buy_art_submit);
   // wire delivery radio boxes
   $('#buy-art-form-1').attr('value', findProduct());
   $($('#buy-art-form>.form-check>.form-check-input')[0]).change(show_or_hide_address);
