@@ -28,7 +28,7 @@ function buy_art_popup(item) {
         while (sibling.tagName.() != 'TABLE')) {
           sibling = sibling.previousElementSibling;
         }
-        var caption = $('caption', sibling)[0];
+        var caption = $('td.tr-caption', sibling)[0];
         if (caption != null) {
           message = caption.innerText;
         }
