@@ -14,6 +14,13 @@
         form.classList.add('was-validated');
       }, false);
     });
+    // wire submit button
+    var submit = $('#buy-art-form-submit')[0];
+    $(submit).click(buy_art_submit);
+    // wire delivery radio boxes
+    $($('#buy-art-form>.form-check>.form-check-input')[0]).change(show_or_hide_address);
+    $($('#buy-art-form>.form-check>.form-check-input')[1]).change(show_or_hide_address);
+    $($('#buy-art-form>.form-check>.form-check-input')[2]).change(show_or_hide_address);
   }, false);
 })();
 // show form
@@ -43,14 +50,7 @@ function buy_art_popup(item) {
     src: '#buy-art-form',
     type: 'inline',
   });
-  // wire submit button
-  var submit = $('#buy-art-form-submit')[0];
-  $(submit).click(buy_art_submit);
-  // wire delivery radio boxes
   $('#buy-art-form-1').attr('value', findProduct());
-  $($('#buy-art-form>.form-check>.form-check-input')[0]).change(show_or_hide_address);
-  $($('#buy-art-form>.form-check>.form-check-input')[1]).change(show_or_hide_address);
-  $($('#buy-art-form>.form-check>.form-check-input')[2]).change(show_or_hide_address);
 }
 // hide address field when needed
 function show_or_hide_address(event) {
