@@ -30,14 +30,14 @@ function buy_art_popup(item) {
         }
         var caption = $('td.tr-caption', sibling)[0];
         if (caption != null) {
-          message = caption.innerText;
+          product = caption.innerText;
         }
         product = anchor.parentElement.nextElementSibling.innerText.trim();
         break;
       }
       anchor = anchors.iterateNext();
     }
-    return product;
+    return product.replace(/\n/), ' '.trim();
   }
   $.fancybox.open({
     src: '#buy-art-form',
