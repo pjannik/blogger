@@ -77,6 +77,7 @@ function buy_art_submit(item) {
         alert("Data: " + data + "\nStatus: " + status);
       }
     );
+    $.fancybox.close();
   }
   return get;
 }
