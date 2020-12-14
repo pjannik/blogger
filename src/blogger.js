@@ -34,10 +34,11 @@ function buy_art_popup(item) {
   $.fancybox.open({
     src: '#buy-art-form',
     type: 'inline',
-    opts: {
-      beforeClose: buy_art_submit(item)
-    }
   });
+  // wire submit button
+  var submit = $('#buy-art-form-submit')[0];
+  S(submit).click(buy_art_submit);
+  // wire delivery radio boxes
   $('#buy-art-form-1').attr('value', findProduct());
   $($('#buy-art-form>.form-check>.form-check-input')[0]).change(show_or_hide_address);
   $($('#buy-art-form>.form-check>.form-check-input')[1]).change(show_or_hide_address);
