@@ -25,7 +25,7 @@ function buy_art_popup(item) {
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
         var sibling = anchor.parentElement.previousElementSibling;
-        while (sibling.tagName.() != 'TABLE')) {
+        while (sibling.tagName.toUpperCase() != 'TABLE') {
           sibling = sibling.previousElementSibling;
         }
         var caption = $('td.tr-caption', sibling)[0];
