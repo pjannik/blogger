@@ -56,6 +56,7 @@ function show_or_hide_address(event) {
 // validate form and mail to blogger admin
 function buy_art_submit(item) {
   function get() {
+    // create message
     var form = $('#buy-art-form')[0];
     var name = jQuery('input[name = "name"]', form)[0].value;
     var message = 'Voici la commande de ' + name + '\n\n';
@@ -66,17 +67,13 @@ function buy_art_submit(item) {
       message += ': ' + div.getElementsByTagName('input')[0].value;
       message += '\n';
     }
-    //
+    // post to blogger
     $.post('https://www.blogger.com/contact-form.do', {
       name: name,
       email: jQuery('input[name = "email"]', form)[0].value,
       message: message,
       blogID: '5799764146171352736'
-    },
-      function(data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
-      }
-    );
+    });
     $.fancybox.close();
   }
   return get;
