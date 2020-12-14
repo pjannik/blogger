@@ -21,9 +21,17 @@ function buy_art_popup(item) {
   function findProduct() {
     var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
     var anchor = anchors.iterateNext();
-    var product = '';
+    var product = item;
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
+        var sibling = anchor.parentElement.previousElementSibling;
+        while (sibling.tagName.() != 'TABLE')) {
+          sibling = sibling.previousElementSibling;
+        }
+        var caption = $('caption', sibling)[0];
+        if (caption != null) {
+          message = caption.innerText;
+        }
         product = anchor.parentElement.nextElementSibling.innerText.trim();
         break;
       }
