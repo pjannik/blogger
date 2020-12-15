@@ -43,7 +43,7 @@ function buy_art_popup(item) {
       }
       anchor = anchors.iterateNext();
     }
-    return product.replace(/\n/g), ' '.trim();
+    return product.replace(/\n/g, ' ').trim();
   }
   $.fancybox.open({
     src: '#buy-art-form',
