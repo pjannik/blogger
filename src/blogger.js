@@ -39,7 +39,6 @@ function buy_art_popup(item) {
         if (caption != null) {
           product = caption.innerText;
         }
-        product = anchor.parentElement.nextElementSibling.innerText.trim();
         break;
       }
       anchor = anchors.iterateNext();
