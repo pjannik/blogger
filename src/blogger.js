@@ -1,28 +1,3 @@
-// init the forms that needs validation
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-    // wire submit button
-    var submit = $('#buy-art-form-submit')[0];
-    $(submit).click(buy_art_submit);
-    // wire delivery radio boxes
-    $($('#buy-art-form>.form-check>.form-check-input')[0]).change(show_or_hide_address);
-    $($('#buy-art-form>.form-check>.form-check-input')[1]).change(show_or_hide_address);
-    $($('#buy-art-form>.form-check>.form-check-input')[2]).change(show_or_hide_address);
-  }, false);
-})();
 // show form
 function buy_art_popup(item) {
   function findProduct() {
@@ -48,7 +23,7 @@ function buy_art_popup(item) {
   $.fancybox.open({
     src: '#buy-art-form',
     type: 'inline',
-    opts: {beforeClose: buy_art_submit},
+    opts: {beforeClose: function() {buy_art_submit(item)},
   });
   $('#buy-art-form-1').attr('value', findProduct());
 }
