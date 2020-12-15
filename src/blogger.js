@@ -48,7 +48,7 @@ function buy_art_popup(item) {
   $.fancybox.open({
     src: '#buy-art-form',
     type: 'inline',
-    beforeClose: buy_art_submit,
+    opts: {beforeClose: buy_art_submit},
   });
   $('#buy-art-form-1').attr('value', findProduct());
 }
