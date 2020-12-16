@@ -30,6 +30,7 @@ function buy_art_popup(item) {
     }
   });
   $('#buy-art-form-1').attr('value', findProduct());
+
 }
 // hide address field when needed and toggle required
 function show_or_hide_address(event) {
@@ -42,7 +43,7 @@ function show_or_hide_address(event) {
     if (hidden) {
       group.removeAttribute('required');
     } else {
-      group.setAttribute(required, 'required');
+      group.setAttribute('required', 'required');
     }
   }
 }
