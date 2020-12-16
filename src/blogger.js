@@ -1,5 +1,7 @@
 // show form
 function buy_art_popup(item) {
+  // try find product from blogspot post page, MAGIC
+  // hvem hvor haren hopper ?
   function findProduct() {
     var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
     var anchor = anchors.iterateNext();
@@ -7,10 +9,11 @@ function buy_art_popup(item) {
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
         var caption;
-        if (anchor.parentElement.tagName.toUpperCase === 'CAPTION') {
+        var parent = anchor.parentElement;
+        if (parent.tagName.toUpperCase === 'TD') {
           caption = anchor.parentElement.innerText;
         } else {
-          var sibling = anchor.parentElement.previousElementSibling;
+          var sibling = parent.previousElementSibling;
           while (sibling.tagName.toUpperCase() != 'TABLE') {
             sibling = sibling.previousElementSibling;
           }
