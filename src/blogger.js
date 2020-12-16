@@ -1,7 +1,7 @@
 //
 $( document ).ready(function() {
     console.log( "document loaded" );
-    $('#buy-art-form-submit').click(buy_art_submit));
+    $('#buy-art-form-submit').click(buy_art_submit, true);
 });
 // show form
 function buy_art_popup(item) {
