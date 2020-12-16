@@ -11,7 +11,7 @@ function buy_art_popup(item) {
         var caption;
         var parent = anchor.parentElement;
         if (parent.tagName.toUpperCase() === 'TD') {
-          caption = anchor.parentElement;
+          caption = parent;
         } else {
           var sibling = parent.previousElementSibling;
           while (sibling.tagName.toUpperCase() != 'TABLE') {
