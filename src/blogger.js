@@ -10,7 +10,7 @@ function buy_art_popup(item) {
       if (anchor.href.includes('(' + item + ')')) {
         var caption;
         var parent = anchor.parentElement;
-        if (parent.tagName.toUpperCase === 'TD') {
+        if (parent.tagName.toUpperCase() === 'TD') {
           caption = anchor.parentElement.innerText;
         } else {
           var sibling = parent.previousElementSibling;
