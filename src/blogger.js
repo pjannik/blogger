@@ -61,12 +61,16 @@ function buy_art_submit() {
       message += '\n';
     }
   }
-  // post to blogger
-  $.post('https://www.blogger.com/contact-form.do', {
-    name: name,
-    email: jQuery('input[name = "email"]', form)[0].value,
-    message: message,
-    blogID: '5799764146171352736'
-  });
-  $.fancybox.close();
+  // validate
+  if (form.checkValidity() !== false) {
+    // post to blogger
+    $.post('https://www.blogger.com/contact-form.do', {
+      name: name,
+      email: jQuery('input[name = "email"]', form)[0].value,
+      message: message,
+      blogID: '5799764146171352736'
+    });
+    $.fancybox.close();
+  }
+
 }
