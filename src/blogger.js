@@ -1,8 +1,3 @@
-//
-$(window).on('load', function() {
-  console.info("window loaded");
-  $('#buy-art-form-submit').click(buy_art_submit, true);
-});
 // show form
 function buy_art_popup(item) {
   function findProduct() {
@@ -36,13 +31,19 @@ function buy_art_popup(item) {
   });
   $('#buy-art-form-1').attr('value', findProduct());
 }
-// hide address field when needed
+// hide address field when needed and toggle required
 function show_or_hide_address(event) {
   var input = event.target;
   var hidden = input.value != 'chronopost';
   var groups = $('#buy-art-form>div.form-group.address');
   for (var i = 0, n = groups.size(); i < n; i++) {
-    groups[i].hidden = hidden;
+    var group = groups[i]
+    groups.hidden = hidden;
+    if (hidden) {
+      group.removeAttribute('required');
+    } else {
+      group.setAttribute(required, 'required');
+    }
   }
 }
 // validate form and mail to blogger admin
@@ -54,9 +55,11 @@ function buy_art_submit() {
   var divs = $('#buy-art-form div.form-group');
   for (var i = 0, n = divs.size(); i < n; i++) {
     var div = divs[i];
-    message += div.getElementsByTagName('label')[0].innerText;
-    message += ': ' + div.getElementsByTagName('input')[0].value;
-    message += '\n';
+    if (div.childElementCount == 2) {
+      message += div.children[0].innerText;
+      message += ': ' + div.children[1].value;
+      message += '\n';
+    }
   }
   // post to blogger
   $.post('https://www.blogger.com/contact-form.do', {
