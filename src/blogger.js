@@ -1,6 +1,6 @@
 //
 $(window).on('load', function() {
-  console.log("window loaded");
+  console.info("window loaded");
   $('#buy-art-form-submit').click(buy_art_submit, true);
 });
 // show form
