@@ -1,3 +1,8 @@
+//
+$( document ).ready(function() {
+    console.log( "document loaded" );
+    $('#buy-art-form-submit').click(buy_art_submit));
+});
 // show form
 function buy_art_popup(item) {
   function findProduct() {
@@ -23,7 +28,9 @@ function buy_art_popup(item) {
   $.fancybox.open({
     src: '#buy-art-form',
     type: 'inline',
-    opts: {beforeClose: function() {buy_art_submit(item)}}
+    opts: {afterShow: function() {
+      console.log('after_show');
+    }}
   });
   $('#buy-art-form-1').attr('value', findProduct());
 }
