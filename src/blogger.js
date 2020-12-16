@@ -6,13 +6,20 @@ function buy_art_popup(item) {
     var product = item;
     while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
-        var sibling = anchor.parentElement.previousElementSibling;
-        while (sibling.tagName.toUpperCase() != 'TABLE') {
-          sibling = sibling.previousElementSibling;
+        var caption;
+        if (anchor.parentElement.tagName.toUpperCase === 'CAPTION') {
+          caption = anchor.parentElement.innerText;
+        } else {
+          var sibling = anchor.parentElement.previousElementSibling;
+          while (sibling.tagName.toUpperCase() != 'TABLE') {
+            sibling = sibling.previousElementSibling;
+          }
+          caption = $('td.tr-caption', sibling)[0];
         }
-        var caption = $('td.tr-caption', sibling)[0];
         if (caption != null) {
           product = caption.innerText;
+        } else {
+          product = 'Peinture numero ' + item;
         }
         break;
       }
