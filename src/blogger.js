@@ -7,7 +7,7 @@ function buy_art_popup(item) {
   var product = item;
   while (anchor) {
     if (anchor.href.includes('(' + item + ')')) {
-      var table = $('table.caption-container')[item - 1];
+      var table = $('table.tr-caption-container')[item - 1];
       var caption;
       if (table) {
         caption = $('td.tr-caption', table);
