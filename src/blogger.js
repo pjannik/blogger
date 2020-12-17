@@ -2,22 +2,16 @@
 function buy_art_popup(item) {
   // try find product from blogspot post page, MAGIC
   // hvem hvor haren hopper ?
-  function findProduct() {
+  function findProduct(item) {
     var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
     var anchor = anchors.iterateNext();
     var product = item;
-    while (anchor) {
+    while (anchor)
       if (anchor.href.includes('(' + item + ')')) {
+        var table = $('table.caption-container')[item];
         var caption;
-        var parent = anchor.parentElement;
-        if (parent.tagName.toUpperCase() === 'TD') {
-          caption = parent;
-        } else {
-          var sibling = parent.previousElementSibling;
-          while (sibling.tagName.toUpperCase() != 'TABLE') {
-            sibling = sibling.previousElementSibling;
-          }
-          caption = $('td.tr-caption', sibling)[0];
+        if (table){
+          caption = $('td.tr-caption', table);
         }
         if (caption != null) {
           product = caption.innerText;
@@ -39,7 +33,7 @@ function buy_art_popup(item) {
       }
     }
   });
-  $('#buy-art-form-1').attr('value', findProduct());
+  $('#buy-art-form-1').attr('value', findProduct();
 
 }
 // hide address field when needed and toggle required
