@@ -2,38 +2,36 @@
 function buy_art_popup(item) {
   // try find product from blogspot post page, MAGIC
   // hvem hvor haren hopper ?
-  function findProduct(item) {
-    var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
-    var anchor = anchors.iterateNext();
-    var product = item;
-    while (anchor) {
-      if (anchor.href.includes('(' + item + ')')) {
-        var table = $('table.caption-container')[item-1];
-        var caption;
-        if (table) {
-          caption = $('td.tr-caption', table);
-        }
-        if (caption != null) {
-          product = caption.innerText;
-        } else {
-          product = 'Peinture numero ' + item;
-        }
-        break;
+  var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
+  var anchor = anchors.iterateNext();
+  var product = item;
+  while (anchor) {
+    if (anchor.href.includes('(' + item + ')')) {
+      var table = $('table.caption-container')[item - 1];
+      var caption;
+      if (table) {
+        caption = $('td.tr-caption', table);
       }
-      anchor = anchors.iterateNext();
-      return product.replace(/\n/g, ' ').trim();
+      if (caption) {
+        product = caption.innerText;
+      } else {
+        product = 'Peinture numero ' + item;
+      }
+      break;
     }
-    $.fancybox.open({
-      src: '#buy-art-form',
-      type: 'inline',
-      opts: {
-        afterShow: function() {
-          console.log('after_show');
-        }
-      }
-    });
+    anchor = anchors.iterateNext();
   }
-  $('#buy-art-form-1').attr('value', findProduct());
+  product = product.replace(/\n/g, ' ').trim();
+  $.fancybox.open({
+    src: '#buy-art-form',
+    type: 'inline',
+    opts: {
+      afterShow: function() {
+        console.log('after_show');
+      }
+    }
+  });
+  $('#buy-art-form-1').attr('value', product);
 }
 // hide address field when needed and toggle required
 function show_or_hide_address(event) {
