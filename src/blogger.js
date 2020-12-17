@@ -40,11 +40,11 @@ function show_or_hide_address(event) {
   var groups = $('#buy-art-form>div.form-group.address');
   for (var i = 0, n = groups.size(); i < n; i++) {
     var group = groups[i]
-    groups.hidden = hidden;
+    group.hidden = hidden;
     if (hidden) {
-      group.removeAttribute('required');
+      group.children[1].removeAttribute('required');
     } else {
-      group.setAttribute('required', 'required');
+      group.children[1].setAttribute('required', 'required');
     }
   }
 }
