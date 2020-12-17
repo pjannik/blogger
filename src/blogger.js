@@ -41,30 +41,32 @@ function show_or_hide_address(event) {
   for (var i = 0, n = groups.size(); i < n; i++) {
     var group = groups[i]
     group.hidden = hidden;
-    if (hidden) {
-      group.children[1].removeAttribute('required');
-    } else {
-      group.children[1].setAttribute('required', 'required');
+    if (i != 1) {
+      if (hidden) {
+        group.children[1].removeAttribute('required');
+      } else {
+        group.children[1].setAttribute('required', 'required');
+      }
     }
   }
 }
 // validate form and mail to blogger admin
 function buy_art_submit() {
-  // create message
   var form = $('#buy-art-form')[0];
-  var name = jQuery('input[name = "name"]', form)[0].value;
-  var message = 'Voici la commande de ' + name + '\n\n';
-  var divs = $('#buy-art-form div.form-group');
-  for (var i = 0, n = divs.size(); i < n; i++) {
-    var div = divs[i];
-    if (div.childElementCount == 2) {
-      message += div.children[0].innerText;
-      message += ': ' + div.children[1].value;
-      message += '\n';
-    }
-  }
-  // validate
+  // validate and send message if valid
   if (form.checkValidity() !== false) {
+    // create message
+    var name = jQuery('input[name = "name"]', form)[0].value;
+    var message = 'Voici la commande de ' + name + '\n\n';
+    var divs = $('#buy-art-form div.form-group');
+    for (var i = 0, n = divs.size(); i < n; i++) {
+      var div = divs[i];
+      if (div.childElementCount == 2) {
+        message += div.children[0].innerText;
+        message += ': ' + div.children[1].value;
+        message += '\n';
+      }
+    }
     // post to blogger
     $.post('https://www.blogger.com/contact-form.do', {
       name: name,
@@ -72,6 +74,9 @@ function buy_art_submit() {
       message: message,
       blogID: '5799764146171352736'
     });
+    form.classList.remove('was-validated');
     $.fancybox.close();
+  } else {
+    form.classList.add('was-validated');
   }
 }
