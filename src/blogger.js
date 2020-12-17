@@ -10,7 +10,7 @@ function buy_art_popup(item) {
       var table = $('table.tr-caption-container')[item - 1];
       var caption;
       if (table) {
-        caption = $('td.tr-caption', table);
+        caption = $('td.tr-caption', table)[0];
       }
       if (caption) {
         product = caption.innerText;
