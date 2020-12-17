@@ -6,11 +6,11 @@ function buy_art_popup(item) {
     var anchors = document.evaluate('//a[contains(@href, "buy_art_popup")]', document.body);
     var anchor = anchors.iterateNext();
     var product = item;
-    while (anchor)
+    while (anchor) {
       if (anchor.href.includes('(' + item + ')')) {
         var table = $('table.caption-container')[item];
         var caption;
-        if (table){
+        if (table) {
           caption = $('td.tr-caption', table);
         }
         if (caption != null) {
@@ -21,20 +21,19 @@ function buy_art_popup(item) {
         break;
       }
       anchor = anchors.iterateNext();
+      return product.replace(/\n/g, ' ').trim();
     }
-    return product.replace(/\n/g, ' ').trim();
-  }
-  $.fancybox.open({
-    src: '#buy-art-form',
-    type: 'inline',
-    opts: {
-      afterShow: function() {
-        console.log('after_show');
+    $.fancybox.open({
+      src: '#buy-art-form',
+      type: 'inline',
+      opts: {
+        afterShow: function() {
+          console.log('after_show');
+        }
       }
-    }
-  });
+    });
+  }
   $('#buy-art-form-1').attr('value', findProduct();
-
 }
 // hide address field when needed and toggle required
 function show_or_hide_address(event) {
@@ -77,5 +76,4 @@ function buy_art_submit() {
     });
     $.fancybox.close();
   }
-
 }
