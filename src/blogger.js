@@ -37,7 +37,7 @@ function buy_art_popup(item) {
 function show_or_hide_address(event) {
   var input = event.target;
   var hidden = input.value != 'chronopost';
-  var groups = $('#buy-art-form>div.form-group.address');
+  var groups = $('#buy-art-form>div.form-group.address')[0];
   for (var i = 0, n = groups.size(); i < n; i++) {
     var group = groups[i]
     group.hidden = hidden;
