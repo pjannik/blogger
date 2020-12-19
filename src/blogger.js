@@ -45,7 +45,7 @@ function show_or_hide_address(event) {
       if (hidden) {
         group.children[1].removeAttribute('required');
       } else {
-        group.children[1].setAttribute('required', 'required');
+        group.children[1].setAttribute('required', '');
       }
     }
   }
