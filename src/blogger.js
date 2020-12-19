@@ -26,8 +26,8 @@ function buy_art_popup(item) {
     src: '#buy-art-form',
     type: 'inline',
     opts: {
-      afterShow: function() {
-        console.log('after_show');
+      afterClose: function() {
+        $('#buy-art-form')[0].classList.remove('was-validated');
       }
     }
   });
