@@ -38,7 +38,7 @@ function show_or_hide_address(event) {
   var input = event.target;
   var hidden = input.value != 'chronopost';
   var groups = $('#buy-art-form>div.form-group.address');
-  for (var i = 0, n = groups.size(); i < n; i++) {
+  for (var i = 0, n = groups.length; i < n; i++) {
     var group = groups[i]
     group.hidden = hidden;
     if (i != 1) {
@@ -59,7 +59,7 @@ function buy_art_submit() {
     var name = jQuery('input[name = "name"]', form)[0].value;
     var message = 'Voici la commande de ' + name + '\n\n';
     var divs = $('#buy-art-form div.form-group');
-    for (var i = 0, n = divs.size(); i < n; i++) {
+    for (var i = 0, n = divs.length; i < n; i++) {
       var div = divs[i];
       if (div.childElementCount == 2) {
         message += div.children[0].innerText;
