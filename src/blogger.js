@@ -62,7 +62,7 @@ function buy_art_submit() {
     var divs = $('#buy-art-form div.form-group');
     for (var i = 0, n = divs.length; i < n; i++) {
       var div = divs[i];
-      if (div.childElementCount == 2) {
+      if (div.childElementCount == 2 && div.hidden == false) {
         message += div.children[0].innerText;
         message += ': ' + div.children[1].value;
         message += '\n';
