@@ -49,6 +49,7 @@ function show_or_hide_address(event) {
       }
     }
   }
+  $('#buy-art-form-12')[0].attr('value', input.previousSibling.innerText)
 }
 // validate form and mail to blogger admin
 function buy_art_submit() {
